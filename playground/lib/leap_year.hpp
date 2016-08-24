@@ -1,10 +1,16 @@
 #pragma once
 
-#include "doctest.h"
-
 namespace date
 {
 bool is_leap_year(int year);
+}
+
+#include "doctest.h"
+
+namespace date::tests
+{
+TEST_SUITE("is_leap_year");
+
 TEST_CASE("leap years")
 {
     SUBCASE("every 4 year")
@@ -20,9 +26,10 @@ TEST_CASE("leap years")
         CHECK(is_leap_year(1200));
     }
 }
+
 TEST_CASE("no leap years")
 {
-    SUBCASE("no fourth year")
+    SUBCASE("not divisible by 4")
     {
         CHECK_FALSE(is_leap_year(2001));
         CHECK_FALSE(is_leap_year(2002));
@@ -35,4 +42,6 @@ TEST_CASE("no leap years")
         CHECK_FALSE(is_leap_year(1700));
     }
 }
+
+TEST_SUITE_END();
 }
