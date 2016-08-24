@@ -1,0 +1,4 @@
+lib calculator
+    : calculator.cpp leap_year.cpp call_tests.cpp
+    :  <include>../../doctest/doctest
+    ;

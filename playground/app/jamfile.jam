@@ -1,0 +1,4 @@
+exe app
+    : main.cpp ../lib//calculator
+    :  <include>../../doctest/doctest <include>..
+    ;
