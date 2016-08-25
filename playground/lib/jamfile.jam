@@ -1,12 +1,25 @@
 import testing ;
 
+alias sources
+    : calculator.cpp leap_year.cpp test_main.cpp
+    ;
+
+alias sources_tests_disabled
+    : sources
+    : <define>DOCTEST_CONFIG_DISABLE
+    ;
+
+alias sources_tests_enabled
+    : sources
+    ;
+
 lib lib
-    : calculator.cpp leap_year.cpp
-    : <include>../../doctest/doctest <define>DOCTEST_CONFIG_DISABLE
+    : sources_tests_disabled
+    : <include>../../doctest/doctest
     ;
 
 exe test_lib
-    : calculator.cpp leap_year.cpp test_main.cpp
+    : sources_tests_enabled
     : <include>../../doctest/doctest
     ;
 
