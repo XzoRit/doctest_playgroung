@@ -3,16 +3,3 @@ import testing ;
 project
     : default-build debug
     ;
-
-build-project app
-    ;
-
-install bin
-    : app
-    : <install-dependencies>on <install-type>EXE <install-type>LIB
-    ;
-
-
-unit-test exec_app
-    : app
-    ;

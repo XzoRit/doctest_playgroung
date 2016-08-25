@@ -1,4 +1,15 @@
-lib calculator
-    : calculator.cpp leap_year.cpp call_tests.cpp
-    :  <include>../../doctest/doctest
+import testing ;
+
+lib lib
+    : calculator.cpp leap_year.cpp
+    : <include>../../doctest/doctest <define>DOCTEST_CONFIG_DISABLE
+    ;
+
+exe test_lib
+    : calculator.cpp leap_year.cpp test_main.cpp
+    : <include>../../doctest/doctest
+    ;
+
+unit-test exec_tests
+    : test_lib
     ;

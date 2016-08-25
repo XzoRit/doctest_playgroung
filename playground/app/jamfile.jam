@@ -1,4 +1,10 @@
+import testing ;
+
 exe app
-    : main.cpp ../lib//calculator
-    :  <include>../../doctest/doctest <include>..
+    : main.cpp ../lib//lib
+    : <include>..
+    ;
+
+unit-test exec_app
+    : app
     ;
