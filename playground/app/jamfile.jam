@@ -8,3 +8,5 @@ exe app
 unit-test exec_app
     : app
     ;
+
+always exec_app ;
