@@ -1,28 +1,31 @@
 import testing ;
 
-alias sources
-    : calculator.cpp leap_year.cpp test_main.cpp
-    ;
-
-alias sources_tests_disabled
-    : sources
-    : <define>DOCTEST_CONFIG_DISABLE
-    ;
-
-alias sources_tests_enabled
-    : sources
-    ;
-
 lib lib
-    : sources_tests_disabled
-    : <include>../../doctest/doctest
+    : [ obj calculator_tests_disabled
+            : calculator.cpp
+            : <include>../../doctest/doctest <define>DOCTEST_CONFIG_DISABLE ]
+      [ obj leap_year_tests_disabled
+            : leap_year.cpp
+	    : <include>../../doctest/doctest <define>DOCTEST_CONFIG_DISABLE ]
+      [ obj test_main_tests_disabled
+            : test_main.cpp
+	    : <include>../../doctest/doctest <define>DOCTEST_CONFIG_DISABLE ]
     ;
 
 exe test_lib
-    : sources_tests_enabled
-    : <include>../../doctest/doctest
+    : [ obj calculator_tests_disabled
+            : calculator.cpp
+            : <include>../../doctest/doctest ]
+      [ obj leap_year_tests_disabled
+            : leap_year.cpp
+	    : <include>../../doctest/doctest ]
+      [ obj test_main_tests_disabled
+            : test_main.cpp
+	    : <include>../../doctest/doctest ]
     ;
 
 unit-test exec_tests
     : test_lib
     ;
+
+always exec_tests ;
