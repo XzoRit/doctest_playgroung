@@ -1,5 +1,3 @@
-import testing ;
-
 project
     : default-build debug
     ;
