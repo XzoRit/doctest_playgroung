@@ -1,29 +1,22 @@
 import testing ;
+import feature : feature ;
 
 SOURCES = calculator leap_year test_main ;
 
-lib lib
-    : [ obj calculator
-            : calculator.cpp
-            : <include>../../doctest/doctest <define>DOCTEST_CONFIG_DISABLE ]
-      [ obj leap_year
-            : leap_year.cpp
-	    : <include>../../doctest/doctest <define>DOCTEST_CONFIG_DISABLE ]
-      [ obj test_main
-            : test_main.cpp
-	    : <include>../../doctest/doctest <define>DOCTEST_CONFIG_DISABLE ]
+feature enable-tests : no yes : optional ;
+
+lib lib_impl
+    : $(SOURCES).cpp
+    : <include>../../doctest/doctest
+      <enable-tests>no:<define>DOCTEST_CONFIG_DISABLE
+    ;
+
+alias lib
+    : lib_impl/<enable-tests>no
     ;
 
 exe test_lib
-    : [ obj calculator
-            : calculator.cpp
-            : <include>../../doctest/doctest ]
-      [ obj leap_year
-            : leap_year.cpp
-	    : <include>../../doctest/doctest ]
-      [ obj test_main
-            : test_main.cpp
-	    : <include>../../doctest/doctest ]
+    : lib_impl/<enable-tests>yes
     ;
 
 unit-test exec_tests
