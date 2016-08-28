@@ -1,25 +1,27 @@
 import testing ;
 
+SOURCES = calculator leap_year test_main ;
+
 lib lib
-    : [ obj calculator_tests_disabled
+    : [ obj calculator
             : calculator.cpp
             : <include>../../doctest/doctest <define>DOCTEST_CONFIG_DISABLE ]
-      [ obj leap_year_tests_disabled
+      [ obj leap_year
             : leap_year.cpp
 	    : <include>../../doctest/doctest <define>DOCTEST_CONFIG_DISABLE ]
-      [ obj test_main_tests_disabled
+      [ obj test_main
             : test_main.cpp
 	    : <include>../../doctest/doctest <define>DOCTEST_CONFIG_DISABLE ]
     ;
 
 exe test_lib
-    : [ obj calculator_tests_disabled
+    : [ obj calculator
             : calculator.cpp
             : <include>../../doctest/doctest ]
-      [ obj leap_year_tests_disabled
+      [ obj leap_year
             : leap_year.cpp
 	    : <include>../../doctest/doctest ]
-      [ obj test_main_tests_disabled
+      [ obj test_main
             : test_main.cpp
 	    : <include>../../doctest/doctest ]
     ;
