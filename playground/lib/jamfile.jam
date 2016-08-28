@@ -28,6 +28,7 @@ exe test_lib
 
 unit-test exec_tests
     : test_lib
+    : <testing.arg>"-dt-s"
     ;
 
 always exec_tests ;
