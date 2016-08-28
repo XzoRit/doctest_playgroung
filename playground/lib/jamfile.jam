@@ -1,12 +1,19 @@
 import testing ;
 import feature : feature ;
 
-SOURCES = calculator leap_year test_main ;
+SOURCES = calculator leap_year ;
 
-feature enable-tests : no yes : optional ;
+feature enable-tests : no yes : optional propagated ;
+
+obj test_main
+    : test_main.cpp
+    : <include>../../doctest/doctest
+      <enable-tests>yes:<define>DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+      <enable-tests>no:<define>DOCTEST_CONFIG_IMPLEMENT
+    ;
 
 lib lib_impl
-    : $(SOURCES).cpp
+    : $(SOURCES).cpp test_main
     : <include>../../doctest/doctest
       <enable-tests>no:<define>DOCTEST_CONFIG_DISABLE
     ;
