@@ -1,7 +1,7 @@
 import testing ;
 
 exe app
-    : main.cpp ../lib//lib
+    : main.cpp /this_lib
     : <include>..
     ;
 
