@@ -18,7 +18,7 @@ lib lib_impl
       <enable-tests>no:<define>DOCTEST_CONFIG_DISABLE
     ;
 
-alias lib
+alias this_lib
     : lib_impl/<enable-tests>no
     ;
 
@@ -32,3 +32,5 @@ unit-test exec_tests
     ;
 
 always exec_tests ;
+
+explicit lib_impl ;
