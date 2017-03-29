@@ -1,3 +1,8 @@
 project
     : default-build debug
+    : build-dir ./build
+    : requirements <cxxflags>-std=c++1z
     ;
+
+build-project app ;
+build-project lib ;
