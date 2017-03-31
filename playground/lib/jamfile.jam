@@ -5,17 +5,24 @@ SOURCES = calculator leap_year ;
 
 feature enable-tests : no yes : optional propagated ;
 
-obj test_main
-    : test_main.cpp
+alias doctest
+    :
+    :
+    :
     : <include>../../doctest/doctest
-      <enable-tests>yes:<define>DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+    ;
+
+obj test_main
+    : test_main.cpp doctest
+    : <enable-tests>yes:<define>DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
       <enable-tests>no:<define>DOCTEST_CONFIG_IMPLEMENT
     ;
 
 lib lib_impl
-    : $(SOURCES).cpp test_main
-    : <include>../../doctest/doctest
-      <enable-tests>no:<define>DOCTEST_CONFIG_DISABLE
+    : $(SOURCES).cpp test_main doctest
+    : <enable-tests>no:<define>DOCTEST_CONFIG_DISABLE
+    :
+    : <include>./
     ;
 
 alias this_lib
