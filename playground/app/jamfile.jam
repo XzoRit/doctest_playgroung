@@ -2,7 +2,6 @@ import testing ;
 
 exe app
     : main.cpp /this_lib
-    : <include>..
     ;
 
 unit-test exec_app

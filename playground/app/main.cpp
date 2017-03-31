@@ -1,5 +1,5 @@
-#include "lib/calculator.hpp"
-#include "lib/leap_year.hpp"
+#include "calculator.hpp"
+#include "leap_year.hpp"
 #include <iostream>
 
 int main(int argc, char* argv[])
