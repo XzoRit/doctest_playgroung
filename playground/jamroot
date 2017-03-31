@@ -4,7 +4,9 @@ project
     : requirements <cxxflags>-std=c++1z
     ;
 
-use-project this_lib : ./lib ;
+use-project this_lib
+    : ./lib
+    ;
 
 build-project app ;
 build-project lib ;
