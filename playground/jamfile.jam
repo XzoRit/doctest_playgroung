@@ -1,0 +1,6 @@
+use-project this_lib
+    : ./lib
+    ;
+
+build-project app ;
+build-project lib ;
