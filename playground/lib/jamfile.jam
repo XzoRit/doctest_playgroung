@@ -3,9 +3,14 @@ import feature : feature ;
 
 SOURCES = calculator leap_year ;
 
-feature enable-tests : no yes : optional propagated ;
+feature enable-tests
+    : no yes
+    : optional propagated
+    ;
 
-alias doctest : ../..//doctest ;
+alias doctest
+    : $(top)//doctest
+    ;
 
 obj test_main
     : test_main.cpp doctest

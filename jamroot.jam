@@ -11,4 +11,6 @@ alias doctest
     : <include>./doctest/doctest
     ;
 
+path-constant top : ./ ;
+
 build-project playground ;
